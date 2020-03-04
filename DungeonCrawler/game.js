@@ -828,7 +828,7 @@ module.exports.Skeleton = function Skeleton(x,y) {
     }
 }
 
-function Arrow(parent,dir,pos,damage,target) {
+module.exports.Arrow = function Arrow(parent,dir,pos,damage,target) {
     this.transform = new Transform();
     this.parent = parent;
     this.tPos = new Vector2();
@@ -893,7 +893,7 @@ function Arrow(parent,dir,pos,damage,target) {
     }
 }
 
-function Slash(parent,dir,pos,damage,target) {
+module.exports.Slash = function Slash(parent,dir,pos,damage,target) {
     this.transform = new Transform();
     this.parent = parent;
     this.tPos = new Vector2();

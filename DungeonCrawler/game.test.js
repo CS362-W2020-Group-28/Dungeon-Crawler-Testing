@@ -47,3 +47,54 @@ describe('Testing Slime', () => {
       expect(new game.Slime(5, 9).layer).toBe(1);
     });
 });
+
+//*********************************************************** */
+//Arrow was worked on by Brenden Smith
+describe('Testing Arrow', () => {
+    it("Arrow damage should be same as Enemy's stat", () => {
+       expect(new game.Arrow((new game.Skeleton(0,0)), 2, (0,0), 12, (new game.Slime(1,0))).damage);
+    });
+
+    it("Arrow parent should be skeleton",() => {
+           expect(new game.Arrow((new game.Skeleton(0,0)), 2, (0,0), 12, (new game.Slime(1,0))).parent);
+    });
+
+    it("Given Enemy should be hit by arrow",() => {
+           expect(new game.Arrow((new game.Skeleton(0,0)), 2, (0,0), 100, (new game.Slime(2,0))).tPos.x).toBe(2);
+    });
+
+    it("Direction of the arrow should be East",() => {
+           expect(new game.Arrow((new game.Skeleton(0,0)), 2, (0,0), 12, (new game.Slime(0,6))));
+        });
+
+    it("Ending position of arrow should be at (6,0)",() => {
+           expect(new game.Arrow((new game.Skeleton(0,0)), 2, (0,0), 12, (new game.Slime(6,0))).tPos.x).toBe(6);
+	   expect(new game.Arrow((new game.Skeleton(0,0)), 2, (0,0), 12, (new game.Slime(6,0))).tPos.y).toBe(0);
+     });
+});
+
+//*********************************************************** */
+//Slash was worked on by Brenden Smith
+describe('Testing Slash', () => {
+    it("Slash connected with another valid box collider", () => {
+    	expect(new game.Slash((new game.Skeleton(0,0)), 2, (0,0), 12, (new game.Slime(1,0))).noTarget).toBe(false);
+    });
+    
+    it("Slash is in the East direction", () => {
+        expect(new game.Slash((new game.Skeleton(0,0)), 1, (0,0), 100, (new game.Slime(1,0))).tPos.x).toBe(1);
+    });
+
+    it("Slash should miss out-of-range target", () => {
+        expect(new game.Slash((new game.Skeleton(0,0)), 1, (0,0), 12, (new game.Slime(5,5))).isDead).toBe(false);
+    });
+
+    it("Slash damage is equal to wielder's stats", () => {
+        expect(new game.Slash((new game.Skeleton(0,0)), 1, (0,0), 12, (new game.Slime(1,0))).damage).toBe(12);
+    });
+
+    it("Slash box position is adjacent to origin; Expect (1,0)", () => {
+        expect(new game.Slash((new game.Skeleton(0,0)), 1, (0,0), 12, (new game.Slime(1,0))).tPos.x).toBe(1);
+	expect(new game.Slash((new game.Skeleton(0,0)), 1, (0,0), 12, (new game.Slime(1,0))).tPos.y).toBe(0);
+    });
+
+});
