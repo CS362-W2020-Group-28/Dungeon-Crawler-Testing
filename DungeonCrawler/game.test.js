@@ -47,3 +47,50 @@ describe('Testing Slime', () => {
       expect(new game.Slime(5, 9).layer).toBe(1);
     });
 });
+
+//Boss done by Samuel Fox
+describe('Testing Boss', () => {
+    it('Boss(2,7).health should return 300', () => {
+        expect(new game.Boss(2, 7).health).toBe(300);
+    });
+
+    it('Boss(2,7).isDead should return false', () => {
+        expect(new game.Boss(2, 7).isDead).toBe(false);
+    });
+
+    it('Boss(2,7).type should return Enemy', () => {
+        expect(new game.Boss(2, 7).type).toBe('Enemy');
+    });
+
+    it('Boss(2,7).damage should return 10', () => {
+        expect(new game.Boss(2, 7).damage).toBe(10);
+    });
+
+    it('Boss(2,7).phase2 should return false', () => {
+        expect(new game.Boss(2, 7).phase2).toBe(false);
+    });
+
+});
+
+//Player done by Samuel Fox
+describe('Testing Player', () => {
+    it('Player().health should return 100', () => {
+        expect(new game.Player().health).toBe(100);
+    });
+
+    it('Player().speed should return 0.1', () => {
+        expect(new game.Player().speed).toBe(0.1);
+    });
+
+    it('Player().type should return player', () => {
+        expect(new game.Player().type).toBe('Player');
+    });
+
+    it('Player().invuln should return false', () => {
+        expect(new game.Player().invuln).toBe(false);
+    });
+
+    it('Player().img should return the right element', () => {
+        expect(new game.Player().img).toBe(document.getElementById("characters"));
+    });
+});
