@@ -42,7 +42,7 @@ describe('Testing Slime', () => {
     it("Slime(5,9).transform.position.x should be 5", () => {
       expect(new game.Slime(5, 9).transform.position.x).toBe(5);
     });
-    
+
     it("Slime(5,9).layer should be 1", () => {
       expect(new game.Slime(5, 9).layer).toBe(1);
     });
@@ -69,7 +69,7 @@ describe('Testing Arrow', () => {
 
     it("Ending position of arrow should be at (6,0)",() => {
            expect(new game.Arrow((new game.Skeleton(0,0)), 2, (0,0), 12, (new game.Slime(6,0))).tPos.x).toBe(6);
-	   expect(new game.Arrow((new game.Skeleton(0,0)), 2, (0,0), 12, (new game.Slime(6,0))).tPos.y).toBe(0);
+	         expect(new game.Arrow((new game.Skeleton(0,0)), 2, (0,0), 12, (new game.Slime(6,0))).tPos.y).toBe(0);
      });
 });
 
@@ -79,7 +79,7 @@ describe('Testing Slash', () => {
     it("Slash connected with another valid box collider", () => {
     	expect(new game.Slash((new game.Skeleton(0,0)), 2, (0,0), 12, (new game.Slime(1,0))).noTarget).toBe(false);
     });
-    
+
     it("Slash is in the East direction", () => {
         expect(new game.Slash((new game.Skeleton(0,0)), 1, (0,0), 100, (new game.Slime(1,0))).tPos.x).toBe(1);
     });
@@ -94,7 +94,54 @@ describe('Testing Slash', () => {
 
     it("Slash box position is adjacent to origin; Expect (1,0)", () => {
         expect(new game.Slash((new game.Skeleton(0,0)), 1, (0,0), 12, (new game.Slime(1,0))).tPos.x).toBe(1);
-	expect(new game.Slash((new game.Skeleton(0,0)), 1, (0,0), 12, (new game.Slime(1,0))).tPos.y).toBe(0);
+	      expect(new game.Slash((new game.Skeleton(0,0)), 1, (0,0), 12, (new game.Slime(1,0))).tPos.y).toBe(0);
     });
 
+});
+
+//Boss done by Samuel Fox
+describe('Testing Boss', () => {
+    it('Boss(2,7).health should return 300', () => {
+        expect(new game.Boss(2, 7).health).toBe(300);
+    });
+
+    it('Boss(2,7).isDead should return false', () => {
+        expect(new game.Boss(2, 7).isDead).toBe(false);
+    });
+
+    it('Boss(2,7).type should return Enemy', () => {
+        expect(new game.Boss(2, 7).type).toBe('Enemy');
+    });
+
+    it('Boss(2,7).damage should return 10', () => {
+        expect(new game.Boss(2, 7).damage).toBe(10);
+    });
+
+    it('Boss(2,7).phase2 should return false', () => {
+        expect(new game.Boss(2, 7).phase2).toBe(false);
+    });
+
+});
+
+//Player done by Samuel Fox
+describe('Testing Player', () => {
+    it('Player().health should return 100', () => {
+        expect(new game.Player().health).toBe(100);
+    });
+
+    it('Player().speed should return 0.1', () => {
+        expect(new game.Player().speed).toBe(0.1);
+    });
+
+    it('Player().type should return player', () => {
+        expect(new game.Player().type).toBe('Player');
+    });
+
+    it('Player().invuln should return false', () => {
+        expect(new game.Player().invuln).toBe(false);
+    });
+
+    it('Player().img should return the right element', () => {
+        expect(new game.Player().img).toBe(document.getElementById("characters"));
+    });
 });
