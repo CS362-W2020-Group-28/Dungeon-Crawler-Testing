@@ -1395,7 +1395,7 @@ function StaticProp(buffer, x, y) {
 
 }
 
-function Chest(x, y) {
+module.exports.Chest = function Chest(x, y) {
 	this.type = "Chest";
 	this.transform = new Transform();
 	this.boxCollider = new BoxCollider(16, 16, this);
@@ -2119,7 +2119,7 @@ function TileRenderer() {
 
 
 
-function Camera() {
+module.exports.Camera = function Camera() {
 	this.transform = new Transform();
 
 	this.offset = new Vector2();
