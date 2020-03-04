@@ -982,9 +982,9 @@ function Slash(parent,dir,pos,damage,target) {
     }
 }
 
-Boss.prototype = new Enemy();
-Boss.prototype.constructor = Boss;
-function Boss(x,y) {
+//Boss.prototype = new Enemy();
+//Boss.prototype.constructor = Boss;
+module.exports.Boss = function Boss(x,y) {
     
     this.type = "Enemy";
     this.transform = new Transform();
@@ -1514,7 +1514,7 @@ function Swing(parent, dir,pos,damage, tSize, ignorePlayer) {
   
 }
 
-function Player() {
+module.exports.Player = function Player() {
 	this.transform = new Transform();
 	this.type = "Player";
     this.layer = 1;
