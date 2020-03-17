@@ -64,7 +64,7 @@ describe('Testing Arrow', () => {
     });
 
     it("Direction of the arrow should be East",() => {
-           expect(new game.Arrow((new game.Skeleton(0,0)), 2, (0,0), 12, (new game.Slime(0,6))));
+           expect(new game.Arrow((new game.Skeleton(0,0)), 1, (0,0), 12, (new game.Slime(1,0))).tPos.x).toBe(1);
         });
 
     it("Ending position of arrow should be at (6,0)",() => {
