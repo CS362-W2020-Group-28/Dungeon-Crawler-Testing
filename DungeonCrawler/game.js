@@ -840,45 +840,34 @@ module.exports.Arrow = function Arrow(parent,dir,pos,damage,target) {
     this.boxCollider = new BoxCollider(15,15,this);
     this.boxPos = new Vector2();
     this.damage = damage;
-    //this.arrowOffset = 32;
     var tileSize = 16;
 
     this.onCollide = function(scene, collider) {
         if(collider.type == "Enemy" && collider != parent) {
             collider.getHit(this);
-            
         }
         this.isDead = true;
-        
     }
-
-    if (dir == 3) {
-        this.transform.position.x = pos.x;
-        this.transform.position.y = pos.y - tileSize;
-        //this.tPos.y -= 32;
-    }
-
+     	
+    //Dir will determine which direction to transform to
     if (dir == 0) {
         this.transform.position.x = pos.x;
         this.transform.position.y = pos.y + tileSize;
-        //this.tPos.y += 32;
-    }
-  
-    if (dir == 1) {
+    
+    }else if (dir == 1) {
         this.transform.position.x = pos.x - tileSize;
         this.transform.position.y = pos.y;
-        //this.tPos.x -= 32;
-    }
-  
-    if (dir == 2) {
+    
+    }else if (dir == 2) {
         this.transform.position.x = pos.x + tileSize;
         this.transform.position.y = pos.y;
-        //this.tPos.y += 32;
+    
+    }else if (dir == 3) {
+        this.transform.position.x = pos.x;
+        this.transform.position.y = pos.y - tileSize;
     }
-
-    this.Start = function(scene) {
-
-    }
+    
+    this.Start = function(scene) {}
     this.Update = function(scene) {
         this.transform.position = lerp(this.transform.position, this.tPos, 0.05);
         if(this.boxCollider.checkCollision(Scene, this.transform.position)) {
@@ -909,7 +898,6 @@ module.exports.Slash = function Slash(parent,dir,pos,damage,target) {
     this.boxCollider = new BoxCollider(15,15,this);
     this.boxPos = new Vector2();
     this.damage = damage;
-    //this.arrowOffset = 32;
     var tileSize = 16;
 
     this.onCollide = function(scene, collider) {
@@ -921,19 +909,8 @@ module.exports.Slash = function Slash(parent,dir,pos,damage,target) {
             
         }
         this.isDead = true;
-        
     }
 
-    if (dir == 3) {
-        this.transform.position.x = pos.x;
-        this.transform.position.y = pos.y - tileSize;
-        if(this.noTarget) {
-            this.tPos.x = pos.x;
-            this.tPos.y = pos.y - 8*16;
-            //this.tPos.y -= 32;
-        }
-            
-    }
 
     if (dir == 0) {
         this.transform.position.x = pos.x;
@@ -941,33 +918,31 @@ module.exports.Slash = function Slash(parent,dir,pos,damage,target) {
         if(this.noTarget) {
             this.tPos.x = pos.x;
             this.tPos.y = pos.y + 8*16;
-            //this.tPos.y += 32;
         }
-    }
-  
-    if (dir == 1) {
+    }else if (dir == 1) {
         this.transform.position.x = pos.x - tileSize;
         this.transform.position.y = pos.y;
         if(this.noTarget) {
             this.tPos.x = pos.x - 8*16;
             this.tPos.y = pos.y;
-            //this.tPos.x -= 32;
         }
-    }
-  
-    if (dir == 2) {
+    }else if (dir == 2) {
         this.transform.position.x = pos.x + tileSize;
         this.transform.position.y = pos.y;
         if(this.noTarget) {
             this.tPos.x = pos.x + 8*16;
             this.tPos.y = pos.y;
-            //this.tPos.y += 32;
+        }
+    }else if (dir == 3) {
+        this.transform.position.x = pos.x;
+        this.transform.position.y = pos.y - tileSize;
+        if(this.noTarget) {
+            this.tPos.x = pos.x;
+            this.tPos.y = pos.y - 8*16;
         }
     }
 
-    this.Start = function(scene) {
-
-    }
+    this.Start = function(scene) {}
     this.Update = function(scene) {
         this.transform.position = lerp(this.transform.position, this.tPos, 0.07);
         if(this.boxCollider.checkCollision(scene, this.transform.position)) {
