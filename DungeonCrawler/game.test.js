@@ -145,3 +145,55 @@ describe('Testing Player', () => {
         expect(new game.Player().img).toBe(document.getElementById("characters"));
     });
 });
+
+//*********************************************************** */
+//Chest was worked on by Fan Yu
+describe('Testing Chest', () => {
+    it('Chest(9, 10).type should be Chest', () => {
+        expect(new game.Chest(9, 10).type).toBe('Chest');
+    });
+    it('Chest(9, 10).transform.position.x should be 9', () => {
+        expect(new game.Chest(9, 10).transform.position.x).toBe(9);
+    });
+    it('Chest(9, 10).transform.position.y should be 10', () => {
+        expect(new game.Chest(9, 10).transform.position.y).toBe(10);
+    });
+    it('Chest(9, 10).isOpen should be 0', () => {
+        expect(new game.Chest(9, 10).isOpen).toBe(0);
+    });
+    it('Chest(9, 10).boxCollider.width should be 16', () => {
+        expect(new game.Chest(9, 10).boxCollider.width).toBe(16);
+    });
+    it('Chest(9, 10).Inventory.length should be 16', () => {
+        expect(new game.Chest(9, 10).Inventory.length).toBe(0);
+    });
+})
+
+//*********************************************************** */
+//Camera was worked on by Fan Yu
+describe('Testing Camera', () => {
+    it('Camera().offset.x should be 160', () => {
+        expect(new game.Camera().offset.x).toBe(160);
+    })
+    it('Camera().offset.y should be 120', () => {
+        expect(new game.Camera().offset.y).toBe(120);
+    })
+    it('Camera().transform.position.x should be 0', () => {
+        expect(new game.Camera().transform.position.x).toBe(0);
+    })
+    it('Camera().transform.position.y should be 0', () => {
+        expect(new game.Camera().transform.position.y).toBe(0);
+    })
+    it('Camera().transform.rotation.x should be 0', () => {
+        expect(new game.Camera().transform.rotation.x).toBe(0);
+    })
+    it('Camera().transform.rotation.y should be 0', () => {
+        expect(new game.Camera().transform.rotation.y).toBe(0);
+    })
+    it('Camera().transform.scale.x should be 0', () => {
+        expect(new game.Camera().transform.scale.x).toBe(0);
+    })
+    it('Camera().transform.scale.y should be 0', () => {
+        expect(new game.Camera().transform.scale.y).toBe(0);
+    })
+})
